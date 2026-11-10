@@ -1,0 +1,12 @@
+{
+  "name": "LUMINA · Meu Universo",
+  "short_name": "LUMINA",
+  "description": "Áreas da vida, metas, hábitos, diário e Espírito → Matéria.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5f1ed",
+  "theme_color": "#f5f1ed",
+  "icons": [{ "src": "/lumina.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

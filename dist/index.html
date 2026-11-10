@@ -1,0 +1,1106 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f1ed" />
+    <meta
+      name="description"
+      content="LUMINA · Seu espaço pessoal de organização, reflexão e ação."
+    />
+    <title>LUMINA · Meu Universo</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/lumina.svg" type="image/svg+xml" />
+    <script type="module" crossorigin src="/assets/index-CoAVeQF6.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CQRM9bzl.css">
+  </head>
+  <body>
+    <section id="authGate" class="auth-shell" aria-labelledby="authHeading">
+      <div class="auth-intro">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">✦</div>
+          <div><strong>LUMINA</strong><small>MEU UNIVERSO</small></div>
+        </div>
+        <div class="auth-intro-copy">
+          <small>UM ESPAÇO SÓ SEU</small>
+          <h1>
+            O que nasce em você<br />
+            ganha forma.
+          </h1>
+          <p>
+            Uma pausa para perceber o que sente, escolher o que importa e dar o
+            próximo passo.
+          </p>
+        </div>
+        <div class="auth-orbit" aria-hidden="true">
+          <span>✦</span><i></i><i></i>
+        </div>
+      </div>
+      <div class="auth-card glass">
+        <small class="eyebrow" id="authEyebrow">LUMINA NA NUVEM</small>
+        <h2 id="authHeading">Bem-vinda de volta.</h2>
+        <p id="authDescription">Entre para abrir seu espaço pessoal.</p>
+        <form id="authForm" hidden>
+          <label
+            >E-mail<input
+              id="authEmail"
+              type="email"
+              autocomplete="username"
+              required
+          /></label>
+          <label id="authPasswordLabel"
+            >Senha<input
+              id="authPassword"
+              type="password"
+              autocomplete="current-password"
+              required
+          /></label>
+          <button class="primary" id="authSubmit" type="submit">Entrar</button>
+        </form>
+        <p id="authMessage" class="auth-message" role="status" hidden></p>
+        <button class="link-btn" id="authSwitch" type="button" hidden>
+          Esqueci minha senha
+        </button>
+        <button class="primary" id="demoStart" type="button" hidden>
+          Experimentar no navegador
+        </button>
+        <button class="secondary" id="retryConnection" type="button" hidden>
+          Tentar de novo
+        </button>
+        <button class="link-btn" id="gateLogout" type="button" hidden>
+          Sair da conta
+        </button>
+      </div>
+    </section>
+
+    <div id="workspaceRoot" hidden>
+      <div class="app">
+        <aside class="sidebar glass">
+          <div class="brand">
+            <div class="logo">✦</div>
+            <div><strong>LUMINA</strong><small>MEU UNIVERSO</small></div>
+          </div>
+
+          <small class="nav-caption">MEU ESPAÇO</small>
+          <nav aria-label="Seções do LUMINA">
+            <button class="nav active" data-view="dashboard">
+              ✦ <span>Meu Universo</span>
+            </button>
+            <button class="nav" data-view="areas">
+              ◈ <span>Áreas da Vida</span>
+            </button>
+            <button class="nav" data-view="goals">◎ <span>Metas</span></button>
+            <button class="nav" data-view="habits">
+              ↻ <span>Hábitos</span>
+            </button>
+            <button class="nav" data-view="journal">
+              ✎ <span>Diário</span>
+            </button>
+            <button class="nav" data-view="spirit">
+              ✧ <span>Espírito → Matéria</span>
+            </button>
+            <button class="nav" data-view="gallery">
+              ▣ <span>Evidências</span>
+            </button>
+            <button class="nav" data-view="focus">
+              ◴ <span>Modo Foco</span>
+            </button>
+            <button class="nav" data-view="reports">
+              ▤ <span>Relatórios</span>
+            </button>
+            <button class="nav" data-view="settings">
+              ⚙ <span>Configurações</span>
+            </button>
+          </nav>
+
+          <div class="level-box">
+            <div>
+              <strong id="sideLevel">Nível 1</strong
+              ><small id="sideStage">Semente</small>
+            </div>
+            <span id="sideXp">0 XP</span>
+            <div class="progress"><i id="xpBar"></i></div>
+          </div>
+        </aside>
+
+        <main>
+          <header class="topbar glass">
+            <div>
+              <small id="todayLabel">HOJE</small>
+              <h1 id="pageTitle">Meu Universo</h1>
+            </div>
+            <div class="top-actions">
+              <button
+                class="sync-chip"
+                id="syncBtn"
+                type="button"
+                title="Atualizar sincronização"
+              >
+                <i></i><span id="syncLabel">Local</span>
+              </button>
+              <button
+                class="icon-btn"
+                id="installBtn"
+                hidden
+                title="Instalar"
+                aria-label="Instalar LUMINA"
+              >
+                ⤓
+              </button>
+              <button
+                class="icon-btn"
+                id="soundBtn"
+                title="Som"
+                aria-label="Alternar som"
+              >
+                ♫
+              </button>
+              <button class="primary" id="quickAddBtn">＋ Adicionar</button>
+            </div>
+          </header>
+          <div class="cloud-notice glass" id="migrationNotice" hidden>
+            <div>
+              <strong>Você já tem um LUMINA neste navegador.</strong>
+              <p>Traga seus registros para a conta em Configurações.</p>
+            </div>
+            <button class="secondary" type="button" data-go="settings">
+              Ver transferência
+            </button>
+          </div>
+          <div class="cloud-notice glass" id="syncNotice" role="status" hidden>
+            <div>
+              <strong id="syncNoticeTitle"></strong>
+              <p id="syncNoticeText"></p>
+            </div>
+            <div class="actions" id="conflictActions" hidden>
+              <button class="secondary" id="useCloudVersion" type="button">
+                Carregar da nuvem
+              </button>
+              <button class="secondary" id="useLocalVersion" type="button">
+                Enviar minha versão
+              </button>
+              <button class="link-btn" id="saveDraftBackup" type="button">
+                Baixar backup
+              </button>
+            </div>
+            <button class="secondary" id="syncRetry" type="button">
+              Tentar sincronizar
+            </button>
+          </div>
+
+          <section
+            class="view active"
+            id="dashboardView"
+            data-title="Meu Universo"
+          >
+            <div class="hero-grid">
+              <article class="hero glass">
+                <div class="hero-copy">
+                  <span class="pill">SEU UNIVERSO, HOJE</span>
+                  <h2>Olá, <span id="profileName">Ludzinha</span>.</h2>
+                  <p id="heroInsight">
+                    Registre ações reais para fazer seu universo crescer.
+                  </p>
+                  <div class="hero-stats">
+                    <div>
+                      <strong id="heroLevel">1</strong><small>Nível</small>
+                    </div>
+                    <div>
+                      <strong id="heroCoins">0</strong><small>Lúmens</small>
+                    </div>
+                    <div>
+                      <strong id="heroStreak">0</strong><small>Sequência</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="character-world">
+                  <div class="planet-ring"></div>
+                  <div class="character stage-1" id="character">
+                    <div class="hair-back"></div>
+                    <div class="body">
+                      <div class="shirt">✦</div>
+                      <div class="arm l"></div>
+                      <div class="arm r"></div>
+                    </div>
+                    <div class="head">
+                      <div class="hair-front"></div>
+                      <i class="eye l"></i><i class="eye r"></i>
+                      <i class="blush l"></i><i class="blush r"></i>
+                      <i class="mouth"></i>
+                    </div>
+                    <div class="crown">✧</div>
+                    <i class="orb o1"></i><i class="orb o2"></i
+                    ><i class="orb o3"></i>
+                  </div>
+                  <div class="char-name">
+                    <strong id="avatarName">Lumi</strong
+                    ><small id="avatarStage">Semente</small>
+                  </div>
+                </div>
+              </article>
+
+              <article class="glass panel reality">
+                <div class="heading">
+                  <div>
+                    <small>MODO REALIDADE</small>
+                    <h3>Intenção x execução</h3>
+                  </div>
+                  <i class="pulse"></i>
+                </div>
+                <div class="score-row">
+                  <div class="score-ring" id="scoreRing">
+                    <strong id="realityScore">0%</strong>
+                  </div>
+                  <div>
+                    <p id="realityText">Comece concluindo uma etapa.</p>
+                    <small id="realitySub"
+                      >O sistema compara o que foi planejado com o que foi
+                      feito.</small
+                    >
+                  </div>
+                </div>
+                <div id="realityList" class="mini-list"></div>
+              </article>
+            </div>
+
+            <article class="spirit-callout glass">
+              <span class="spirit-mark" aria-hidden="true">✧</span>
+              <div>
+                <small class="eyebrow">CADERNO DE REFLEXÃO</small>
+                <h3>Espírito → Matéria</h3>
+                <p id="spiritHomeText">
+                  Dê nome ao sonho, perceba a sensação e escolha um gesto
+                  concreto.
+                </p>
+              </div>
+              <button class="secondary" data-go="spirit" type="button">
+                Abrir caderno <span aria-hidden="true">↗</span>
+              </button>
+            </article>
+
+            <div class="dash-grid">
+              <article class="glass panel">
+                <div class="heading">
+                  <div>
+                    <small>MAPA GERAL</small>
+                    <h3>Roda da vida</h3>
+                  </div>
+                  <button class="link-btn" data-go="areas">Editar áreas</button>
+                </div>
+                <canvas id="radarCanvas"></canvas>
+                <div id="radarLegend" class="legend"></div>
+              </article>
+
+              <article class="glass panel">
+                <div class="heading">
+                  <div>
+                    <small>MISSÕES</small>
+                    <h3>Movimentos de hoje</h3>
+                  </div>
+                  <button class="link-btn" id="newMissionBtn">
+                    Nova missão
+                  </button>
+                </div>
+                <div id="missionList" class="stack"></div>
+              </article>
+
+              <article class="glass panel">
+                <div class="heading">
+                  <div>
+                    <small>CONSTÂNCIA</small>
+                    <h3>Últimos 14 dias</h3>
+                  </div>
+                  <span class="badge" id="habitRateBadge">0%</span>
+                </div>
+                <div id="heatmap" class="heatmap"></div>
+                <div id="topHabits" class="top-habits"></div>
+              </article>
+
+              <article class="glass panel">
+                <div class="heading">
+                  <div>
+                    <small>ENERGIA</small>
+                    <h3>Sinais registrados</h3>
+                  </div>
+                  <button class="link-btn" data-go="journal">Registrar</button>
+                </div>
+                <canvas id="energyCanvas"></canvas>
+                <div id="energyStats" class="micro-stats"></div>
+              </article>
+
+              <article class="glass panel wide">
+                <div class="heading">
+                  <div>
+                    <small>LINHA DO TEMPO</small>
+                    <h3>Movimentos recentes</h3>
+                  </div>
+                </div>
+                <div id="timeline" class="timeline"></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" id="spiritView" data-title="Espírito → Matéria">
+            <div class="intro spirit-intro">
+              <div>
+                <small>O QUE SINTO, O QUE CULTIVO</small>
+                <h2>Espírito → Matéria</h2>
+                <p>
+                  Coloque lado a lado o sonho, o que você sente hoje, a visão de
+                  realizá-lo e um próximo passo que cabe na sua vida.
+                </p>
+              </div>
+              <button class="primary" id="addDreamBtn" type="button">
+                ＋ Novo registro
+              </button>
+            </div>
+            <div class="spirit-steps glass" aria-label="Campos do caderno">
+              <div>
+                <small>01</small><strong>Sonho</strong>
+                <p>O que desejo viver?</p>
+              </div>
+              <div>
+                <small>02</small><strong>Sensação</strong>
+                <p>Como me sinto agora? E ao realizar?</p>
+              </div>
+              <div>
+                <small>03</small><strong>Visão</strong>
+                <p>Que cena me mostra isso acontecendo?</p>
+              </div>
+              <div>
+                <small>04</small><strong>Matéria</strong>
+                <p>Que ação posso fazer de verdade?</p>
+              </div>
+            </div>
+            <div class="spirit-tools">
+              <p id="dreamCount" aria-live="polite"></p>
+              <label
+                >Mostrar
+                <select id="dreamFilter">
+                  <option value="all">Todos os registros</option>
+                  <option value="ideia">Em cultivo</option>
+                  <option value="movimento">Em movimento</option>
+                  <option value="realizado">Realizados</option>
+                </select></label
+              >
+            </div>
+            <div id="dreamTable" class="spirit-table glass"></div>
+          </section>
+
+          <section class="view" id="areasView" data-title="Áreas da Vida">
+            <div class="intro">
+              <div>
+                <small>SEU MAPA</small>
+                <h2>Áreas da sua vida</h2>
+                <p>
+                  Defina onde você está, onde quer chegar e o que realmente está
+                  executando.
+                </p>
+              </div>
+              <button class="primary" id="addAreaBtn">＋ Nova área</button>
+            </div>
+            <div id="areaSummary" class="summary glass"></div>
+            <div id="areasGrid" class="areas-grid"></div>
+          </section>
+
+          <section class="view" id="goalsView" data-title="Metas">
+            <div class="intro">
+              <div>
+                <small>CAMINHOS</small>
+                <h2>Metas e etapas</h2>
+                <p>
+                  Transforme objetivos em passos pequenos, verificáveis e
+                  executáveis.
+                </p>
+              </div>
+              <button class="primary" id="addGoalBtn">＋ Nova meta</button>
+            </div>
+            <div class="filters glass">
+              <select id="goalAreaFilter">
+                <option value="all">Todas as áreas</option>
+              </select>
+              <select id="goalStatusFilter">
+                <option value="all">Todos os status</option>
+                <option value="active">Em andamento</option>
+                <option value="late">Atrasadas</option>
+                <option value="done">Concluídas</option>
+              </select>
+              <input
+                id="goalSearch"
+                type="search"
+                placeholder="Buscar meta..."
+              />
+            </div>
+            <div id="goalsList" class="stack"></div>
+          </section>
+
+          <section class="view" id="habitsView" data-title="Hábitos">
+            <div class="intro">
+              <div>
+                <small>RITMO</small>
+                <h2>Hábitos e constância</h2>
+                <p>Marque o que foi feito hoje e acompanhe padrões reais.</p>
+              </div>
+              <button class="primary" id="addHabitBtn">＋ Novo hábito</button>
+            </div>
+            <div class="stat-grid">
+              <article class="glass stat">
+                <small>Hábitos ativos</small
+                ><strong id="activeHabits">0</strong>
+              </article>
+              <article class="glass stat">
+                <small>Concluídos hoje</small
+                ><strong id="todayHabits">0</strong>
+              </article>
+              <article class="glass stat">
+                <small>Melhor sequência</small
+                ><strong id="bestStreak">0</strong>
+              </article>
+              <article class="glass stat">
+                <small>Taxa de 7 dias</small><strong id="sevenRate">0%</strong>
+              </article>
+            </div>
+            <div id="habitsList" class="stack"></div>
+          </section>
+
+          <section class="view" id="journalView" data-title="Diário">
+            <div class="intro">
+              <div>
+                <small>CONSCIÊNCIA</small>
+                <h2>Diário de realidade</h2>
+                <p>
+                  Separe fatos, interpretações e o próximo movimento prático.
+                </p>
+              </div>
+              <button class="primary" id="addJournalBtn">
+                ＋ Novo registro
+              </button>
+            </div>
+            <div id="journalSummary" class="summary glass"></div>
+            <div id="journalList" class="stack"></div>
+          </section>
+
+          <section class="view" id="galleryView" data-title="Evidências">
+            <div class="intro">
+              <div>
+                <small>PROVAS DE EVOLUÇÃO</small>
+                <h2>Galeria de evidências</h2>
+                <p>
+                  Registre conquistas, certificados, resultados e momentos
+                  importantes.
+                </p>
+              </div>
+              <label class="primary upload"
+                >＋ Adicionar foto<input
+                  id="photoInput"
+                  type="file"
+                  accept="image/*"
+                  hidden
+              /></label>
+            </div>
+            <div class="gallery-tools glass">
+              <select id="galleryAreaFilter">
+                <option value="all">Todas as áreas</option>
+              </select>
+              <span id="galleryInfo">0 imagens</span>
+            </div>
+            <div id="photoGrid" class="photo-grid"></div>
+          </section>
+
+          <section class="view" id="focusView" data-title="Modo Foco">
+            <div class="focus-grid">
+              <article class="glass focus-card">
+                <small>SESSÃO PROFUNDA</small>
+                <h2>Um movimento de cada vez.</h2>
+                <p>
+                  Escolha uma meta, reduza o ruído e registre tempo real
+                  investido.
+                </p>
+                <div class="focus-selects">
+                  <select id="focusGoal">
+                    <option value="">Sessão livre</option>
+                  </select>
+                  <select id="focusDuration">
+                    <option value="5">5 minutos</option>
+                    <option value="15">15 minutos</option>
+                    <option value="25" selected>25 minutos</option>
+                    <option value="45">45 minutos</option>
+                    <option value="60">60 minutos</option>
+                  </select>
+                </div>
+                <div class="timer-orbit">
+                  <div class="timer">
+                    <strong id="timerText">25:00</strong
+                    ><small id="timerStatus">Pronta para começar</small>
+                  </div>
+                </div>
+                <div class="actions">
+                  <button class="primary" id="startFocus">Iniciar</button
+                  ><button class="secondary" id="pauseFocus">Pausar</button
+                  ><button class="ghost" id="resetFocus">Reiniciar</button>
+                </div>
+              </article>
+              <article class="glass panel">
+                <div class="heading">
+                  <div>
+                    <small>HISTÓRICO</small>
+                    <h3>Sessões recentes</h3>
+                  </div>
+                </div>
+                <div id="focusHistory" class="stack"></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" id="reportsView" data-title="Relatórios">
+            <div class="intro">
+              <div>
+                <small>LEITURA DE CAMINHO</small>
+                <h2>Relatórios pessoais</h2>
+                <p>Gere relatórios e salve como PDF pelo navegador.</p>
+              </div>
+            </div>
+            <div class="reports-grid">
+              <article class="glass report-card">
+                <span>◷</span>
+                <h3>Semanal</h3>
+                <p>Últimos sete dias, hábitos, ações e energia.</p>
+                <button class="primary reportBtn" data-report="weekly">
+                  Gerar relatório
+                </button>
+              </article>
+              <article class="glass report-card">
+                <span>◫</span>
+                <h3>Mensal</h3>
+                <p>Visão do mês atual, metas e constância.</p>
+                <button class="primary reportBtn" data-report="monthly">
+                  Gerar relatório
+                </button>
+              </article>
+              <article class="glass report-card">
+                <span>✦</span>
+                <h3>Completo</h3>
+                <p>Livro da evolução com histórico e evidências.</p>
+                <button class="primary reportBtn" data-report="complete">
+                  Gerar relatório
+                </button>
+              </article>
+            </div>
+            <article class="glass panel">
+              <div class="heading">
+                <div>
+                  <small>PRÉVIA</small>
+                  <h3>Resumo atual</h3>
+                </div>
+              </div>
+              <div id="reportSnapshot" class="snapshot"></div>
+            </article>
+          </section>
+
+          <section class="view" id="settingsView" data-title="Configurações">
+            <div class="intro">
+              <div>
+                <small>CONTROLE</small>
+                <h2>Configurações e segurança</h2>
+                <p>
+                  Personalize o sistema e mantenha seus dados sob seu controle.
+                </p>
+              </div>
+            </div>
+            <div class="settings-grid">
+              <form id="profileForm" class="glass settings-card">
+                <h3>Identidade e visual</h3>
+                <label
+                  >Seu nome<input id="settingsName" maxlength="40"
+                /></label>
+                <label
+                  >Nome da personagem<input id="settingsAvatar" maxlength="30"
+                /></label>
+                <label
+                  >Frase na página inicial<input
+                    id="settingsGreeting"
+                    maxlength="160"
+                    placeholder="Uma frase que você quer ler ao chegar"
+                /></label>
+                <label
+                  >Fundo<select id="settingsTheme">
+                    <option value="linho">Linho rosado</option>
+                    <option value="lavanda">Lavanda</option>
+                    <option value="noite">Noite suave</option>
+                  </select></label
+                >
+                <label
+                  >Cor principal<input id="settingsAccent" type="color"
+                /></label>
+                <label class="checkline"
+                  ><input id="settingsCompanion" type="checkbox" /> Mostrar
+                  personagem, nível e lúmens</label
+                >
+                <label class="checkline"
+                  ><input id="settingsScore" type="checkbox" /> Mostrar painel
+                  de intenção e execução</label
+                >
+                <label class="checkline"
+                  ><input id="settingsSound" type="checkbox" /> Tocar sons de
+                  conclusão</label
+                >
+                <button class="primary" type="submit">
+                  Salvar preferências
+                </button>
+              </form>
+              <article class="glass settings-card">
+                <h3>Conta e sincronização</h3>
+                <p id="accountInfo"></p>
+                <div class="actions">
+                  <button class="secondary" id="settingsSync" type="button">
+                    Sincronizar agora</button
+                  ><button class="ghost" id="signOutBtn" type="button">
+                    Sair da conta
+                  </button>
+                </div>
+              </article>
+              <article class="glass settings-card">
+                <h3>Backup e transferência</h3>
+                <p>
+                  Exporte seus registros e fotos em um arquivo JSON. A
+                  importação restaura a cópia que você escolher.
+                </p>
+                <div class="actions">
+                  <button class="secondary" id="exportBtn">
+                    Exportar backup</button
+                  ><label class="ghost upload"
+                    >Importar backup<input
+                      id="importInput"
+                      type="file"
+                      accept=".json,application/json"
+                      hidden
+                  /></label>
+                </div>
+                <div id="legacyTransfer" class="legacy-transfer" hidden>
+                  <p>
+                    Se usava a versão anterior neste mesmo endereço, você pode
+                    copiar seus registros para esta conta.
+                  </p>
+                  <button class="secondary" id="migrateBtn" type="button">
+                    Trazer dados deste navegador
+                  </button>
+                </div>
+              </article>
+              <article class="glass settings-card danger">
+                <h3>Recomeçar</h3>
+                <p id="clearDescription">
+                  Retorna o espaço aos dados iniciais.
+                </p>
+                <button class="danger-btn" id="clearBtn">
+                  Recomeçar meu espaço
+                </button>
+              </article>
+              <article class="glass settings-card">
+                <h3>Armazenamento</h3>
+                <div id="storageDetails"></div>
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <nav class="mobile-nav glass" aria-label="Seções principais">
+        <button class="mobile active" data-view="dashboard">
+          ✦<small>Início</small>
+        </button>
+        <button class="mobile" data-view="areas">◈<small>Áreas</small></button>
+        <button class="mobile" data-view="spirit">
+          ✧<small>Espírito</small>
+        </button>
+        <button class="mobile" data-view="habits">
+          ↻<small>Hábitos</small>
+        </button>
+        <button class="mobile" id="mobileMore" type="button">
+          ⋯<small>Mais</small>
+        </button>
+      </nav>
+    </div>
+
+    <div id="toastBox" class="toast-box" aria-live="polite"></div>
+
+    <dialog id="mobileDialog">
+      <div class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>MEU ESPAÇO</small>
+            <h3>Mais seções</h3>
+          </div>
+          <button type="button" data-close="mobileDialog" aria-label="Fechar">
+            ×
+          </button>
+        </div>
+        <div class="quick-grid">
+          <button type="button" data-go="goals" data-close="mobileDialog">
+            ◎<span>Metas</span>
+          </button>
+          <button type="button" data-go="journal" data-close="mobileDialog">
+            ✎<span>Diário</span>
+          </button>
+          <button type="button" data-go="gallery" data-close="mobileDialog">
+            ▣<span>Evidências</span>
+          </button>
+          <button type="button" data-go="focus" data-close="mobileDialog">
+            ◴<span>Modo Foco</span>
+          </button>
+          <button type="button" data-go="reports" data-close="mobileDialog">
+            ▤<span>Relatórios</span>
+          </button>
+          <button type="button" data-go="settings" data-close="mobileDialog">
+            ⚙<span>Configurações</span>
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="quickDialog">
+      <form method="dialog" class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>AÇÃO RÁPIDA</small>
+            <h3>O que deseja registrar?</h3>
+          </div>
+          <button value="cancel">×</button>
+        </div>
+        <div class="quick-grid">
+          <button type="button" data-quick="area">◈<span>Área</span></button>
+          <button type="button" data-quick="goal">◎<span>Meta</span></button>
+          <button type="button" data-quick="habit">↻<span>Hábito</span></button>
+          <button type="button" data-quick="journal">
+            ✎<span>Diário</span>
+          </button>
+          <button type="button" data-quick="dream">
+            ✧<span>Espírito → Matéria</span>
+          </button>
+          <button type="button" data-quick="mission">
+            ✦<span>Missão</span>
+          </button>
+          <button type="button" data-quick="photo">▣<span>Foto</span></button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="dreamDialog" aria-labelledby="dreamDialogTitle">
+      <form id="dreamForm" class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>ESPÍRITO → MATÉRIA</small>
+            <h3 id="dreamDialogTitle">Novo registro</h3>
+          </div>
+          <button type="button" data-close="dreamDialog" aria-label="Fechar">
+            ×
+          </button>
+        </div>
+        <input id="dreamId" type="hidden" />
+        <label
+          >Sonho<input
+            id="dreamTitle"
+            required
+            maxlength="150"
+            placeholder="O que quero viver ou construir?"
+        /></label>
+        <div class="form-grid two">
+          <label
+            >Como me sinto hoje?<textarea
+              id="dreamNow"
+              rows="3"
+              maxlength="1600"
+              placeholder="Nomeie o que sente neste momento."
+            ></textarea>
+          </label>
+          <label
+            >Como imagino me sentir ao realizar?<textarea
+              id="dreamThen"
+              rows="3"
+              maxlength="1600"
+              placeholder="Descreva a sensação que você imagina."
+            ></textarea>
+          </label>
+        </div>
+        <label
+          >Visão<textarea
+            id="dreamVision"
+            rows="3"
+            maxlength="2400"
+            placeholder="Onde estou? O que vejo, ouço ou percebo nessa cena?"
+          ></textarea>
+        </label>
+        <label
+          >Matéria<textarea
+            id="dreamMatter"
+            rows="3"
+            maxlength="2400"
+            placeholder="Qual é o próximo gesto concreto que posso dar?"
+          ></textarea>
+        </label>
+        <div class="form-grid two">
+          <label
+            >Etapa<select id="dreamStatus">
+              <option value="ideia">Em cultivo</option>
+              <option value="movimento">Em movimento</option>
+              <option value="realizado">Realizado</option>
+            </select></label
+          >
+          <label
+            >Data do próximo passo (opcional)<input id="dreamDate" type="date"
+          /></label>
+        </div>
+        <div class="actions end">
+          <button type="button" class="ghost" data-close="dreamDialog">
+            Cancelar</button
+          ><button class="primary" type="submit">Salvar registro</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="areaDialog">
+      <form id="areaForm" class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>MAPA DA VIDA</small>
+            <h3 id="areaDialogTitle">Nova área</h3>
+          </div>
+          <button type="button" data-close="areaDialog">×</button>
+        </div>
+        <input id="areaId" type="hidden" />
+        <div class="form-grid two">
+          <label
+            >Nome<input
+              id="areaName"
+              required
+              maxlength="40"
+              placeholder="Ex.: Saúde"
+          /></label>
+          <label>Símbolo<input id="areaIcon" maxlength="4" value="✦" /></label>
+          <label
+            >Cor<input id="areaColor" type="color" value="#7c5cff"
+          /></label>
+          <label
+            >Importância<select id="areaImportance">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select></label
+          >
+        </div>
+        <label
+          >Descrição<textarea id="areaDescription" rows="3"></textarea>
+        </label>
+        <div class="form-grid two">
+          <label
+            >Situação atual: <strong id="currentValue">5</strong
+            ><input id="areaCurrent" type="range" min="0" max="10" value="5"
+          /></label>
+          <label
+            >Situação desejada: <strong id="targetValue">8</strong
+            ><input id="areaTarget" type="range" min="0" max="10" value="8"
+          /></label>
+        </div>
+        <div class="actions end">
+          <button type="button" class="ghost" data-close="areaDialog">
+            Cancelar</button
+          ><button class="primary">Salvar área</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="goalDialog">
+      <form id="goalForm" class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>CAMINHO</small>
+            <h3 id="goalDialogTitle">Nova meta</h3>
+          </div>
+          <button type="button" data-close="goalDialog">×</button>
+        </div>
+        <input id="goalId" type="hidden" />
+        <div class="form-grid two">
+          <label>Título<input id="goalTitle" required maxlength="80" /></label>
+          <label>Área<select id="goalArea" required></select></label>
+          <label>Prazo<input id="goalDue" type="date" /></label>
+          <label
+            >Prioridade<select id="goalPriority">
+              <option value="low">Baixa</option>
+              <option value="medium" selected>Média</option>
+              <option value="high">Alta</option>
+            </select></label
+          >
+        </div>
+        <label
+          >Por que importa?<textarea id="goalWhy" rows="3"></textarea>
+        </label>
+        <label
+          >Etapas, uma por linha<textarea
+            id="goalSteps"
+            rows="6"
+            placeholder="Definir o resultado&#10;Executar o primeiro passo&#10;Revisar o progresso"
+          ></textarea>
+        </label>
+        <div class="actions end">
+          <button type="button" class="ghost" data-close="goalDialog">
+            Cancelar</button
+          ><button class="primary">Salvar meta</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="habitDialog">
+      <form id="habitForm" class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>CONSTÂNCIA</small>
+            <h3 id="habitDialogTitle">Novo hábito</h3>
+          </div>
+          <button type="button" data-close="habitDialog">×</button>
+        </div>
+        <input id="habitId" type="hidden" />
+        <div class="form-grid two">
+          <label>Nome<input id="habitTitle" required maxlength="60" /></label>
+          <label>Área<select id="habitArea" required></select></label>
+          <label
+            >Frequência<select id="habitFrequency">
+              <option value="daily">Todos os dias</option>
+              <option value="weekdays">Segunda a sexta</option>
+              <option value="3x">3 vezes por semana</option>
+              <option value="weekly">1 vez por semana</option>
+            </select></label
+          >
+          <label
+            >Meta semanal<input
+              id="habitTarget"
+              type="number"
+              min="1"
+              max="7"
+              value="7"
+          /></label>
+        </div>
+        <div class="actions end">
+          <button type="button" class="ghost" data-close="habitDialog">
+            Cancelar</button
+          ><button class="primary">Salvar hábito</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="journalDialog">
+      <form id="journalForm" class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>REGISTRO</small>
+            <h3>Novo registro</h3>
+          </div>
+          <button type="button" data-close="journalDialog">×</button>
+        </div>
+        <div class="form-grid three">
+          <label>Data<input id="journalDate" type="date" required /></label>
+          <label
+            >Humor<select id="journalMood">
+              <option value="1">1 — Difícil</option>
+              <option value="2">2</option>
+              <option value="3" selected>3 — Estável</option>
+              <option value="4">4</option>
+              <option value="5">5 — Muito bem</option>
+            </select></label
+          >
+          <label
+            >Energia<input
+              id="journalEnergy"
+              type="number"
+              min="0"
+              max="10"
+              value="6"
+          /></label>
+        </div>
+        <label
+          >O que é fato?<textarea id="journalFact" rows="3" required></textarea>
+        </label>
+        <label
+          >Qual foi sua interpretação?<textarea
+            id="journalInterpretation"
+            rows="3"
+          ></textarea>
+        </label>
+        <label
+          >Qual será a postura madura e eficaz?<textarea
+            id="journalAction"
+            rows="3"
+          ></textarea>
+        </label>
+        <div class="actions end">
+          <button type="button" class="ghost" data-close="journalDialog">
+            Cancelar</button
+          ><button class="primary">Salvar registro</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="missionDialog">
+      <form id="missionForm" class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>MISSÃO</small>
+            <h3>Novo movimento</h3>
+          </div>
+          <button type="button" data-close="missionDialog">×</button>
+        </div>
+        <label>Missão<input id="missionTitle" required maxlength="90" /></label>
+        <label>Área<select id="missionArea"></select></label>
+        <div class="actions end">
+          <button type="button" class="ghost" data-close="missionDialog">
+            Cancelar</button
+          ><button class="primary">Criar missão</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="photoDialog">
+      <div class="dialog glass">
+        <div class="dialog-head">
+          <div>
+            <small>EVIDÊNCIA</small>
+            <h3>Detalhes da imagem</h3>
+          </div>
+          <button type="button" data-close="photoDialog">×</button>
+        </div>
+        <img id="photoPreview" class="photo-preview" alt="Prévia" />
+        <div class="form-grid two">
+          <label>Título<input id="photoTitle" maxlength="80" /></label>
+          <label>Área<select id="photoArea"></select></label>
+        </div>
+        <label>Nota<textarea id="photoNote" rows="3"></textarea></label>
+        <div class="actions end">
+          <button type="button" class="ghost" data-close="photoDialog">
+            Cancelar</button
+          ><button type="button" class="primary" id="savePhotoBtn">
+            Salvar evidência
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="confirmDialog">
+      <form method="dialog" class="dialog glass confirm">
+        <div class="dialog-head">
+          <div>
+            <small>CONFIRMAÇÃO</small>
+            <h3 id="confirmTitle">Confirmar</h3>
+          </div>
+          <button value="cancel">×</button>
+        </div>
+        <p id="confirmText">Tem certeza?</p>
+        <div class="actions end">
+          <button class="ghost" value="cancel">Cancelar</button
+          ><button class="danger-btn" value="confirm">Confirmar</button>
+        </div>
+      </form>
+    </dialog>
+
+  </body>
+</html>

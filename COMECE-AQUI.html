@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comece aqui · LUMINA na nuvem</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(ellipse at top left,#f0dfed,transparent 41rem),#f6f2ee;color:#38293d;font:16px/1.6 system-ui,sans-serif}
+  main{max-width:860px;margin:0 auto;padding:32px 18px 48px}
+  header,section{background:#fffcfa;border:1px solid #e7dce7;border-radius:22px;padding:clamp(17px,4vw,34px);margin:0 0 14px}
+  header{background:linear-gradient(125deg,#fff8f1,#ece0f3);padding-top:30px;padding-bottom:29px}
+  h1,h2{font-family:Georgia,serif;line-height:1.1;margin:0 0 10px;font-weight:normal}
+  h1{font-size:clamp(34px,7vw,58px);letter-spacing:-.05em}
+  h2{font-size:26px}
+  small{font-size:12px;font-weight:750;letter-spacing:.15em;color:#74577d}
+  p{margin:8px 0}
+  ol{padding-left:1.45rem;margin:12px 0}
+  li+li{margin-top:7px}
+  code{font-size:.88em;overflow-wrap:anywhere}
+  pre{background:#f4edf6;border:1px solid #ebdfec;padding:13px;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+  .note{padding:12px 14px;background:#f7edf3;border-left:3px solid #9a769f;border-radius:8px}
+  .label{display:block;margin-bottom:10px}
+  table{width:100%;border-collapse:collapse;font-size:.91rem}
+  td,th{padding:8px;border:1px solid #e7dce7;text-align:left;overflow-wrap:anywhere}
+  th{background:#f4edf6}
+  a{color:#6c467a;text-underline-offset:3px}
+  footer{color:#6e5d73;padding:5px 3px}
+</style>
+<main>
+  <header>
+    <small class="label">✦ LUMINA · MEU UNIVERSO</small>
+    <h1>Seu LUMINA na nuvem</h1>
+    <p>Use o mesmo app na Vercel, com sua conta e seus registros em qualquer navegador atual.</p>
+  </header>
+
+  <section>
+    <small class="label">01 · ANTES DE ATUALIZAR</small>
+    <h2>Guarde o que você já escreveu</h2>
+    <p>No app que está no ar, vá a <b>Configurações → Exportar backup</b>. Guarde o arquivo JSON com os registros e fotos.</p>
+    <p class="note">Use o navegador onde você já preenchia o LUMINA. Guarde o JSON com você e mantenha esse arquivo fora do repositório.</p>
+  </section>
+
+  <section>
+    <small class="label">02 · SUPABASE</small>
+    <h2>Crie o banco e seu login</h2>
+    <ol>
+      <li>Abra o Supabase e crie ou selecione um projeto para o LUMINA, com a <b>Data API</b> habilitada.</li>
+      <li>No <b>SQL Editor → New query</b>, cole todo o conteúdo de <code>supabase/01-estrutura.sql</code>. Clique em <b>Run</b>.</li>
+      <li>Em <b>Authentication → Users → Add user → Create new user</b>, cadastre seu e-mail, escolha uma senha e confirme o usuário. Se aparecer <b>Auto confirm user</b>, marque para sua própria conta.</li>
+      <li>Em <b>Authentication → Sign In / Providers</b>, deixe Email habilitado e desative <b>Allow new users to sign up</b>.</li>
+      <li>Em <b>Connect</b> ou <b>Project Settings → API Keys</b>, copie a URL do projeto e a <b>Publishable key</b>.</li>
+    </ol>
+  </section>
+
+  <section>
+    <small class="label">03 · VERCEL</small>
+    <h2>Atualize o projeto que já existe</h2>
+    <p>Abra o projeto do LUMINA na Vercel. Em <b>Environment Variables</b>, crie estas duas entradas em <b>Production</b>. Use <b>Config</b> se aparecer essa escolha.</p>
+    <table>
+      <tr><th>Key</th><th>Value</th></tr>
+      <tr><td><code>VITE_SUPABASE_URL</code></td><td>Project URL, começando por <code>https://</code></td></tr>
+      <tr><td><code>VITE_SUPABASE_PUBLISHABLE_KEY</code></td><td>Chave pública que começa com <code>sb_publishable_</code> ou <code>anon</code> legada</td></tr>
+    </table>
+    <p>Copie o conteúdo da pasta extraída para a pasta do repositório que a Vercel já usa. Em <b>Build and Deployment</b>, confira <b>Vite</b>, Node.js <b>22.x</b> ou <b>24.x</b>, build <code>npm run build</code> e saída <code>dist</code>.</p>
+    <p>Envie as mudanças ao GitHub e aguarde <b>Ready</b> em <b>Deployments</b>. Se as variáveis foram salvas depois do deploy, clique em <b>Redeploy</b>.</p>
+    <p>O <code>README.md</code> detalha os comandos para Git e para quem publica pela CLI.</p>
+  </section>
+
+  <section>
+    <small class="label">04 · PRIMEIRO ACESSO</small>
+    <h2>Traga seus registros e confira</h2>
+    <ol>
+      <li>Entre no endereço publicado com seu e-mail e a senha criada no Supabase.</li>
+      <li>Em <b>Configurações → Backup e transferência</b>, use <b>Importar backup</b>. No mesmo endereço e navegador da versão antiga, você também pode usar <b>Trazer dados deste navegador</b>.</li>
+      <li>Abra <b>Espírito → Matéria</b>, escreva um registro de teste e espere <b>Na nuvem</b>.</li>
+      <li>Entre com a mesma conta em outro navegador. Confira se o registro apareceu.</li>
+    </ol>
+    <p>Em <b>Authentication → URL Configuration</b> no Supabase, use seu endereço publicado como <b>Site URL</b> e adicione o mesmo endereço com <code>/</code> às <b>Redirect URLs</b> para recuperar a senha.</p>
+  </section>
+
+  <section>
+    <small class="label">OPCIONAL · TESTE NO COMPUTADOR</small>
+    <h2>Abra a demonstração primeiro</h2>
+    <p>Com Node.js 22.12+ ou 24, abra a pasta no VS Code e rode:</p>
+    <pre><code>npm ci
+npm run dev</code></pre>
+    <p>Abra o endereço <b>Local</b> do terminal. Para conectar no computador, copie <code>.env.example</code> para <code>.env.local</code>, preencha os valores e reinicie o Vite.</p>
+  </section>
+
+  <footer>O código, a estrutura do banco e os testes estão na mesma pasta deste guia.</footer>
+</main>
+</html>
