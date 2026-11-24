@@ -1,4 +1,4 @@
-const CACHE = "lumina-shell-v2";
+const CACHE = "lumina-shell-v3";
 const STATIC = ["/", "/manifest.json", "/lumina.svg"];
 
 self.addEventListener("install", (event) => {

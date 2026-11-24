@@ -1,3 +1,5 @@
+import { emptyFinance, normalizeFinance } from "./finance-core.js";
+
 export const LEGACY_KEY = "lumina_state_v1";
 export const DEMO_KEY = "lumina_demo_v2";
 export const DEFAULT_ACCENT = "#79578b";
@@ -96,7 +98,7 @@ export function initialState() {
     }),
   );
   return {
-    version: 2,
+    version: 3,
     profile: {
       name: "Ludzinha",
       avatar: "Lumi",
@@ -110,6 +112,7 @@ export function initialState() {
     xp: 40,
     coins: 12,
     areas,
+    finance: emptyFinance(),
     goals: [],
     habits: [],
     missions: [],
@@ -201,7 +204,7 @@ function photoFields(entry) {
 
 export function normalizeState(raw) {
   const value = record(raw);
-  if (value.version !== undefined && ![1, 2].includes(value.version)) {
+  if (value.version !== undefined && ![1, 2, 3].includes(value.version)) {
     throw new Error("Versão do arquivo incompatível.");
   }
   const fallback = initialState();
@@ -209,7 +212,8 @@ export function normalizeState(raw) {
   const now = new Date().toISOString();
   const created = (entry) => date(entry.createdAt, now);
   return {
-    version: 2,
+    version: 3,
+    finance: normalizeFinance(value.finance),
     profile: {
       name: str(p.name, fallback.profile.name) || fallback.profile.name,
       avatar: str(p.avatar, fallback.profile.avatar) || fallback.profile.avatar,
@@ -338,7 +342,7 @@ export function validDataImage(value) {
 export function parseBackup(raw) {
   const box = record(raw);
   const value = record(box.state ?? box);
-  if (![1, 2].includes(value.version) || !Array.isArray(value.areas)) {
+  if (![1, 2, 3].includes(value.version) || !Array.isArray(value.areas)) {
     throw new Error("Selecione um backup JSON gerado pelo LUMINA.");
   }
   const photos = list(box.state ? box.photos : undefined, (p) => {

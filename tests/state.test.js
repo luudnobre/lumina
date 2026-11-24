@@ -49,7 +49,7 @@ test("a version 1 backup retains areas, habits, entries and portable image bytes
     ],
   };
   const migrated = parseBackup(raw);
-  assert.equal(migrated.state.version, 2);
+  assert.equal(migrated.state.version, 3);
   assert.equal(migrated.state.profile.name, "Teste");
   assert.equal(migrated.state.profile.sound, false);
   assert.equal(migrated.state.areas[0].id, "area_old");

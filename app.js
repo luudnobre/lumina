@@ -11,6 +11,7 @@ import {
 } from "./src/cloud.js";
 import { prepareShell } from "./src/shell.js";
 import { DocumentSync } from "./src/sync.js";
+import { createFinance } from "./src/finance-ui.js";
 import {
   LEGACY_KEY,
   DEMO_KEY,
@@ -102,6 +103,7 @@ import {
   let audioCtx = null;
   let galleryRender = 0;
   let galleryObserver = null;
+  let finance = null;
   const galleryUrls = new Set();
   const reports = new Set();
 
@@ -291,6 +293,7 @@ import {
       $(selector).value = "";
     $("#toastBox").replaceChildren();
     state = initialState();
+    finance?.reset();
     if (hadWorkspace) renderAll();
   }
 
@@ -517,6 +520,7 @@ import {
     ).dataset.title;
     window.scrollTo({ top: 0 });
     if (name === "gallery") void renderGallery();
+    if (name === "finance") finance?.render();
     if (name === "dashboard") {
       drawRadar();
       drawEnergy();
@@ -536,6 +540,7 @@ import {
     renderFocus();
     renderSnapshot();
     renderSettings();
+    finance?.render();
     if (ready) void renderGallery();
   }
 
@@ -2102,6 +2107,8 @@ import {
     })
       .format(new Date())
       .toUpperCase();
+    finance = createFinance({ getState: () => state, save, toast, confirm, uid });
+    finance.bind();
     bind();
     try {
       await prepareShell();

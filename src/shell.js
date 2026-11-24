@@ -1,4 +1,4 @@
-const SHELL = "lumina-shell-v2";
+const SHELL = "lumina-shell-v3";
 
 function controllerIsSafe() {
   const worker = navigator.serviceWorker.controller;

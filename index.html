@@ -87,6 +87,9 @@
             <button class="nav" data-view="areas">
               ◈ <span>Áreas da Vida</span>
             </button>
+            <button class="nav" data-view="finance">
+              ◇ <span>Meu financeiro</span>
+            </button>
             <button class="nav" data-view="goals">◎ <span>Metas</span></button>
             <button class="nav" data-view="habits">
               ↻ <span>Hábitos</span>
@@ -551,6 +554,10 @@
             </div>
           </section>
 
+          <section class="view" id="financeView" data-title="Meu financeiro">
+            <div id="financeContent"></div>
+          </section>
+
           <section class="view" id="reportsView" data-title="Relatórios">
             <div class="intro">
               <div>
@@ -734,6 +741,9 @@
           </button>
         </div>
         <div class="quick-grid">
+          <button type="button" data-go="finance" data-close="mobileDialog">
+            ◇<span>Meu financeiro</span>
+          </button>
           <button type="button" data-go="goals" data-close="mobileDialog">
             ◎<span>Metas</span>
           </button>
@@ -754,6 +764,10 @@
           </button>
         </div>
       </div>
+    </dialog>
+
+    <dialog id="financeDialog" aria-label="Cadastro financeiro">
+      <div id="financeDialogBody"></div>
     </dialog>
 
     <dialog id="quickDialog">
